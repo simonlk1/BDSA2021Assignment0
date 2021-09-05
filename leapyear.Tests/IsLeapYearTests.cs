@@ -1,10 +1,9 @@
 using System;
 using Xunit;
-using leapyear;
 
 namespace leapyear.Tests
 {
-    public class UnitTest1
+    public class IsLeapYearTests
     {
         [Fact]
         public void IsLeapYear_400_divisible_by_4()
