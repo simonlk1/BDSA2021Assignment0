@@ -6,24 +6,17 @@ namespace leapyear.Tests
     public class IsLeapYearTests
     {
         [Fact]
-        public void IsLeapYear_400_divisible_by_4()
-        {
-            //Arrange
-            LeapYear leapyear = new LeapYear();
+        public void IsLeapYear_1808_is_leap_year()
+        {   
+            bool IsLeapYear = LeapYear.IsLeapYear(1808);
 
-            //Act
-            bool IsLeapYear = leapyear.IsLeapYear(400);
-
-            //Assert
             Assert.True(IsLeapYear);
         }
 
         [Fact]
         public void IsLeapYear_1700_not_leap_year()
         {
-            LeapYear leapyear = new LeapYear();
-
-            bool isLeapYear = leapyear.IsLeapYear(1700);
+            bool isLeapYear = LeapYear.IsLeapYear(1700);
 
             Assert.False(isLeapYear);
         }
@@ -31,9 +24,7 @@ namespace leapyear.Tests
         [Fact]
         public void IsLeapYear_1800_not_leap_year()
         {
-            LeapYear leapyear = new LeapYear();
-
-            bool isLeapYear = leapyear.IsLeapYear(1800);
+            bool isLeapYear = LeapYear.IsLeapYear(1800);
 
             Assert.False(isLeapYear);
         }
@@ -41,11 +32,16 @@ namespace leapyear.Tests
         [Fact]
         public void IsLeapYear_2000_is_leap_year()
         {
-            LeapYear leapyear = new LeapYear();
-
-            bool isLeapYear = leapyear.IsLeapYear(2000);
+            bool isLeapYear = LeapYear.IsLeapYear(2000);
 
             Assert.True(isLeapYear);
+        }
+
+        [Fact]
+        public void IsLeapYear_1500_throws_ArgumentException()
+        {
+            Action action = () => LeapYear.IsLeapYear(1500);
+            Assert.Throws<ArgumentException>(action);
         }
     }
 }
